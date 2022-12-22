@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content%}
+    <div class="PROJECT" id="canvas">
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/p5.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/PROJECT.js')}}"></script>
+{% endblock%}
+

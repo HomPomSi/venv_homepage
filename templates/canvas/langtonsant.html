@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content%}
+    <div class="langtonsant-full-wrapper" id="langtonsant-full-wrapper">
+        <div class="langtonsant-canvas-controls-wrapper">
+            <div class="langtonsant-canvas-controls">
+                <div class="langtonsant-canvas-controls-buttons">
+                    <button type="button" onclick="start()" title="Start">
+                        <img alt="Start" src="{{ url_for('static', filename='icon_start.svg')}}">
+                    </button>
+                    <button type="button" onclick="stop()" title="Stop">
+                        <img alt="Stop" src="{{ url_for('static', filename='icon_stop.svg')}}">
+                    </button>
+                    <button type="button" onclick="reset()" title="Reset">
+                        <img alt="Reset" src="{{ url_for('static', filename='icon_reset.svg') }}">
+                    </button>
+                    <button type="button" onclick="reset_all()" title="Reset all">
+                        <img alt="Reset All" src="{{ url_for('static', filename='icon_reset_all.svg') }}">
+                    </button>
+                    <button type="button" onclick="delete_rule()" title="Delete the last rule">
+                        <img alt="Delete" src="{{ url_for('static', filename='icon_delete.svg') }}">
+                    </button>
+                </div>
+                <p class="langtonsant-current-steps" id="langtonsant-current-steps" title="Number of steps">
+                    0
+                </p>
+            </div>
+            <div class="langtonsant" id="canvas">
+            </div>
+            <div class="langtonsant-rules-controls">
+                <p class="langtonsant-current-rules" id="langtonsant-current-rules" title="Current set of rules">
+                </p>
+                <div class="langtonsant-rules-controls-buttons">
+                    <button type="button" onclick="add_rule(-1)" title="Add LeftRoatation rule">
+                        <img alt="Left" src="{{ url_for('static', filename='icon_left.svg') }}">
+                    </button>
+                    <button type="button" onclick="add_rule(1)" title="Add RightRotation rule">
+                        <img alt="Right" src="{{ url_for('static', filename='icon_right.svg') }}">
+                    </button>
+                    <button id="langtonsant-color-button" style="border-radius: 7px;" type="button" onclick="make_color()" title="Make new color">
+                        <img alt="C" style="font-size: 39px; font-weight: bold; width: 32px; height: 32px;" src="{{ url_for('static', filename='icon_color.svg') }}">
+                    </button>
+                    <button type="button" onclick="add_rule(0)" title="Add NoRotation rule">
+                        <img alt="Forward" src="{{ url_for('static', filename='icon_forward.svg') }}">
+                    </button>
+                    <button type="button" onclick="add_rule(2)" title="Add TurnAround rulr">
+                        <img alt="Backwards" src="{{ url_for('static', filename='icon_backwards.svg') }}">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="langtonsant-text-wrapper">
+            <p>
+                <span>
+                    Langtons Ant ist eine Turingmaschine mit einem zweidimensionalen Speicher und wurde 1986 von Christopher Langton entwickelt. 
+                    Sie ist ein Beispiel dafür, dass ein deterministisches (das heißt nicht zufallsbedingtes) System mit einfachen Regeln 
+                    und einfachem Anfangszustand sowohl für den Menschen visuell überraschend ungeordnet erscheinende als auch regelmäßig erscheinende Zustände annehmen kann. 
+                </span>
+                <br>
+                <br>
+                <span>
+                    Die Ameise bewegt sich in einem endlichem Gitter aus Feldern, mit Übergang zur gegenüber liegenden Seite, die entweder schwarz oder weiß sein können.
+                    Zu Beginn sind alle Felder grau, beziehungsweise werden von der Ameise als weiß gewertet, sie sitzt dabei in der Mitte des Gitters und schaut nach unten.
+                    <br>
+                    <br>
+                    Der Übergang zum nächsten Zustand erfolgt nach folgenden Regeln:
+                </p>
+                    <ul>
+                        <li>
+                            Auf einem weißen Feld drehe 90 Grad nach rechts; auf einem schwarzen Feld drehe 90 Grad nach links.
+                        </li>
+                        <li>
+                            Wechsle die Farbe des Feldes (weiß nach schwarz oder schwarz nach weiß).
+                        </li>
+                        <li>
+                            Gehe zum nächsten Feld in der aktuellen Blickrichtung.
+                        </li>
+                    </ul>
+                <p>
+                </span>
+                <br>
+                <span>
+                    In den ersten ca. 500 Schritten treten wiederholt symmetrische Muster auf.
+                    Danach bildet die Ameise während rund 10.000 Schritten ein komplexes, chaotisches Muster.
+                    Schließlich geht sie dazu über, eine regelmäßige Struktur („Ameisenstraße“) zu bauen: Sie gerät
+                    alle 104 Schritte in denselben (lokalen) Zustand; jeweils diagonal um 2 Felder 
+                    verschoben, und baut die Straße bis ins Unendliche weiter.
+                </span>
+            </p>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/p5.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/langtonsant.js') }}"></script>
+{% endblock%}

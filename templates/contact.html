@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="contacts">
+        <div class="contact-logos">
+            <a href="https://www.instagram.com/lukas.grnwald/">
+                <img alt="Instagram" src="{{ url_for('static', filename='instagram-logo.png')}}" title="Instagram">
+            </a>
+            <a href="https://steamcommunity.com/profiles/76561198213115640/">
+                <img alt="Steam" src="{{ url_for('static', filename='steam-logo.png')}}" title="Steam">
+            </a>
+            <a href="https://github.com/HomPomSi">
+                <img alt="GitHub" src="{{ url_for('static', filename='github-logo.svg')}}" title="Github">
+            </a>
+            <a href="https://sopra.informatik.uni-stuttgart.de/LukasGruenwald">
+                <img alt="GitLab" src="{{ url_for('static', filename='gitlab-logo.svg')}}" title="Gitlab">
+            </a>
+            <a href="https://www.twitch.tv/h0mp0msi">
+                <img alt="Twitch" src="{{ url_for('static', filename='twitch-logo.png')}}" title="Twitch">
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
